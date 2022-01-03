@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: './src/index.tsx',
@@ -7,6 +9,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Output Management',
     }),
+    new BundleAnalyzerPlugin({ analyzerMode: 'server' }),
   ],
   devtool: 'inline-source-map',
   devServer: {
@@ -30,4 +33,7 @@ module.exports = {
     clean: true,
   },
   mode: 'development',
+  optimization: {
+    usedExports: true,
+  },
 };

@@ -1,21 +1,8 @@
 import express from 'express';
-import { graphqlHTTP } from 'express-graphql';
-import { buildSchema, GraphQLSchema } from 'graphql';
 import cors from 'cors';
-
-// Construct a schema, using GraphQL schema language
-const schema: GraphQLSchema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
-
-// The root provides a resolver function for each API endpoint
-const root = {
-  hello: () => {
-    return 'Hello world!';
-  },
-};
+import { graphqlHTTP } from 'express-graphql';
+import schema from './schema';
+import { root } from './resolvers';
 
 const app = express();
 app.use(cors());

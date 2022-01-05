@@ -3,10 +3,10 @@ import { gql, useQuery } from '@apollo/client';
 import GreetingBanner from './GreetingBanner';
 import { monthsActiveUserFragment } from './RxFunctionList';
 
-const RxFunctionList = lazy(async () => {
-  const module = await import('./RxFunctionList');
-  return { default: module.RxFunctionList };
-});
+// const RxFunctionList = lazy(async () => {
+//   const module = await import('./RxFunctionList');
+//   return { default: module.RxFunctionList };
+// });
 
 type AppProps = {};
 
@@ -35,7 +35,7 @@ export default ({}: AppProps) => {
   return (
     <Suspense fallback={<span>Loading...</span>}>
       <GreetingBanner data={data} />
-      <RxFunctionList data={data} />
+      {/* <RxFunctionList data={data} /> */}
     </Suspense>
   );
 };

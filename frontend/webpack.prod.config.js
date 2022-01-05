@@ -10,7 +10,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Output Management',
     }),
-    new TerserPlugin({ extractComments: false }),
+    new TerserPlugin({
+      extractComments: false,
+    }),
     new BundleAnalyzerPlugin({ analyzerMode: 'server' }),
   ],
   devtool: 'inline-source-map',

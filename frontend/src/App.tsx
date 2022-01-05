@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import GreetingBanner from './GreetingBanner';
-import { monthsActiveUserFragment } from './RxFunctionList';
+// import { monthsActiveUserFragment } from './RxFunctionList';
 
 const RxFunctionList = lazy(async () => {
   const module = await import('./RxFunctionList');
@@ -18,7 +18,6 @@ const QUERY = gql`
       ...MonthsActiveFragment
     }
   }
-  ${monthsActiveUserFragment}
 `;
 
 export default ({}: AppProps) => {

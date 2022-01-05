@@ -1,14 +1,12 @@
 import React, { Suspense, lazy } from 'react';
 import { gql, useQuery } from '@apollo/client';
 import GreetingBanner from './GreetingBanner';
-import { monthsActiveUserFragment } from './LodashFunctionList';
+import { monthsActiveUserFragment } from './RxFunctionList';
 
-// const LodashFunctionList = lazy(async () => {
-//   const module = await import(
-//     /* webpackExports: ["LodashFunctionList"]*/ './LodashFunctionList'
-//   );
-//   return { default: module.LodashFunctionList };
-// });
+const RxFunctionList = lazy(async () => {
+  const module = await import('./RxFunctionList');
+  return { default: module.RxFunctionList };
+});
 
 type AppProps = {};
 
@@ -37,7 +35,7 @@ export default ({}: AppProps) => {
   return (
     <Suspense fallback={<span>Loading...</span>}>
       <GreetingBanner data={data} />
-      {/* <LodashFunctionList data={data} /> */}
+      <RxFunctionList data={data} />
     </Suspense>
   );
 };

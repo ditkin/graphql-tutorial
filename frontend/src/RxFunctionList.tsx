@@ -3,13 +3,13 @@ import * as rxFunctions from 'rxjs';
 import gql from 'graphql-tag';
 import { User } from './types/User';
 
-type LodashFunctionListProps = {
+type RxFunctionListProps = {
   data: {
     user: User;
   };
 };
 
-export const LodashFunctionList = ({ data }: LodashFunctionListProps) => {
+export const RxFunctionList = ({ data }: RxFunctionListProps) => {
   return (
     <>
       Thank you for being a loyal member for {data.user.monthsActive} months!
